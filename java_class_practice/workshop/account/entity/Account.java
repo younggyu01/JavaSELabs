@@ -14,13 +14,14 @@ public class Account extends Object {
 
 	// Constructor Overloading (생성자 중복정의)
 	public Account(String custId, String acctId, int balance) {
-		//this.custId = custId;
-		//this.acctId = acctId;
+		// this.custId = custId;
+		// this.acctId = acctId;
 		setCustId(custId);
 		setAcctId(acctId);
 		this.balance = balance;
 	}
 
+	
 //	public void setBalance(int balance) {
 //		this.balance = balance;
 //	}
@@ -52,10 +53,10 @@ public class Account extends Object {
 
 	// 출금
 	public void withdraw(int amount) throws InsufficientBalanceException {
-		//잔액부족
-		if(amount > this.balance) {
+		// 잔액부족
+		if (amount > this.balance) {
 			String errMessage = String.format("잔액이 부족합니다. (요청 금액: %d, 현재 잔액: %d)", amount, this.balance);
-			//Exception 강제로 발생 시킴
+			// Exception 강제로 발생 시킴
 			throw new InsufficientBalanceException(errMessage);
 		}
 		this.balance -= amount;
