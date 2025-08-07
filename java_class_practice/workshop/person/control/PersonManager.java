@@ -1,23 +1,36 @@
 package workshop.person.control;
 
+import java.util.Scanner;
+
 import workshop.person.entity.PersonEntity;
 
 public class PersonManager {
 
 	public static void main(String[] args) {
+		//Scanner 객체생성
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("==> 성별 정보를 입력하세요.");
+		String inputValue = scanner.next();
+		char gender = inputValue.charAt(0); //String => char
+		
+		System.out.println("==> 이름을 입력하세요.");
+		String name = scanner.next();
+		
+		System.out.println(String.format("성별은 %s, 이름은 %s", gender, name) + "\n");
+		
+		scanner.close();
+		
 		PersonManager personMgr = new PersonManager();
-		
-		personMgr.printTitle("인물정보 조회시스템");
-		
 		//배열선언 및 초기화
 		PersonEntity[] persons = new PersonEntity[10];
 		//persons 변수는 PersonEntity[] 타입이고, persons[0]은 PersonEntity 타입이다.
 		personMgr.fillPersons(persons);
 		
+		
+		personMgr.printTitle("인물정보 조회시스템");
 		personMgr.showPerson(persons);
 		
-		char gender = '남';
-		String message = String.format("성별: %s (은)는  %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
+		String message = String.format("성별 : %s (은)는   %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
 		System.out.println(message);
 	}
 	
