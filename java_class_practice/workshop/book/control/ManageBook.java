@@ -21,7 +21,7 @@ public class ManageBook {
 			System.out.println(pub);  //pub.toString()
 		}
 		
-		Publication pub2 = pubs[2];
+		Publication pub2 = pubs[2]; //빠삐용
 		System.out.println("=== 가격변경 전 ===");
 		System.out.println(pub2.getTitle() + " = " + pub2.getPrice());
 		modifyPrice(pub2);
@@ -50,4 +50,7 @@ public class ManageBook {
 	}
 	
 	
+	
+	
+
 }
